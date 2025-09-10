@@ -1,0 +1,389 @@
+    :root {
+        --red: #ff003c;
+        --blue: #00aaff;
+        --gray: #dcdcdc;
+        --white: #ffffff;
+        --dark: #1a1a1a;
+        --dark_opaque: #1a1a1acc;
+    }
+
+    body {
+        margin: 0;
+        font-family: 'Chakra Petch', sans-serif;
+        background: var(--dark);
+        color: var(--white);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .frame {
+        display: grid;
+        grid-template-columns: 0.4fr 1fr;
+        /* sidebar takes 25% */
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+
+    }
+
+    /* Sidebar (control panel) */
+
+    .sidebar {
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        min-width: 300px;
+        /* ensures it never gets too tiny */
+        max-width: 50vw;
+        /* caps at 50% of the screen */
+    }
+
+    .shape-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .shape-container svg {
+        pointer-events: all;
+    }
+
+    .content-wrapper {
+        position: relative;
+        /* needed for z-index to work */
+        z-index: 1;
+        /* content always on top */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        background-color: var(--dark_opaque);
+        border: 2px solid var(--gray);
+        border-radius: 12px;
+    }
+
+    .frosted-card {
+        background: rgba(255, 255, 255, 0.1);
+        /* translucent white */
+        backdrop-filter: blur(10px) saturate(150%);
+        -webkit-backdrop-filter: blur(10px) saturate(150%);
+        /* Safari support */
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        /* subtle border for depth */
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        /* subtle depth */
+    }
+
+    .profile {
+        width: 100%;
+        max-width: 250px;
+        border-radius: 12px;
+        border: 2px solid var(--white);
+        margin-bottom: 1rem;
+    }
+
+    .info {
+        text-align: center;
+    }
+
+    .info h1 {
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    .info p {
+        font-size: 0.9rem;
+        opacity: 0.8;
+    }
+
+    .nav {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+        max-width: 250px;
+        margin-top: auto;
+    }
+
+    .nav button {
+        padding: 0.5rem;
+        background: none;
+        color: var(--gray);
+        border: 3px solid var(--gray);
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.2s;
+        height: 15%;
+    }
+
+    .nav button:hover {
+        background: var(--gray);
+        color: var(--dark);
+        border-top: 3px solid var(--red);
+        border-left: 3px solid var(--red);
+        border-bottom: 3px solid var(--blue);
+        border-right: 3px solid var(--blue);
+    }
+
+    .nav button.active {
+        margin-left: 5%;
+        margin-right: -5%;
+        background-color: var(--gray);
+        color: var(--dark);
+    }
+
+    .nav button.active:hover {
+        border: 3px var(--gray) solid;
+    }
+
+    /* Screen (display area) */
+    .screen {
+        background: var(--gray);
+        color: var(--dark);
+        position: relative;
+        overflow: hidden;
+        overflow-y: scroll;
+        padding: 5VW;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-top: 0px;
+    }
+
+    .screen p {
+        font-size: 1.25rem;
+    }
+
+    .page {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        height: 100%;
+    }
+
+    .page.active {
+        display: block;
+        opacity: 1;
+    }
+
+    .innerWrapper_left {
+        width: 33%;
+    }
+
+    .icon {
+        display: none;
+    }
+
+    .mobile-toggle {
+  display: none;
+}
+
+
+    @media (max-width: 900px) {
+        .frame {
+            grid-template-columns: 1fr;
+            /* screen fills width */
+            grid-template-rows: 1fr auto;
+            /* main screen + bottom bar */
+        }
+
+        .sidebar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100vw;
+            height: auto;
+            max-width: none;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 0.5rem 1rem;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            border-top: 2px solid var(--gray);
+            border-radius: 0;
+
+            z-index: 10;
+            overflow: visible;
+        }
+
+        .content-wrapper {
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            background: transparent;
+            /* keep clean bar */
+            border: none;
+            box-shadow: none;
+            padding: 0;
+            width: 100%;
+            height: auto;
+        }
+
+        .profile {
+            width: 15vw;
+            height: auto;
+            margin: -10% 0.5rem 0 0;
+        }
+
+        .info {
+            display: none;
+            /* optional: hide name/text on mobile */
+        }
+
+        .nav {
+            flex-direction: row;
+            gap: 0.5rem;
+            margin: 0;
+            width: auto;
+            max-width: none;
+        }
+
+        .nav button {
+            flex: 1;
+            height: auto;
+            padding: 0.25rem 0.25rem;
+            font-size: 2vw;
+            width: 15vw;
+        }
+
+        .nav button:hover {
+            background: none;
+            color: var(--gray);
+            border: none;
+        }
+
+        .nav button.active {
+            margin: auto;
+            background-color: var(--gray);
+        }
+
+
+
+    }
+@media (max-width: 688px) {
+  .profile {
+    display: none;
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    margin-top: 10px;
+  }
+
+  .sidebar {
+    position: fixed;       /* pin it */
+   right: -100vw;
+   bottom: 0px;
+    width: 150px;           /* half the viewport width */
+    height: 150px;          /* same as width = perfect circle */
+    z-index: 5;
+
+    /* reset inherited styles */
+    min-width: unset;
+    max-width: unset;
+    display: block;
+border: none;
+    background: none;
+  }
+
+  .frosted-card {
+  }
+
+  .content-wrapper {
+    background-color: none;
+  }
+
+  .shape-container {
+    display: none;
+  }
+
+  .nav {
+    position: fixed;
+    bottom: -125px;
+    left: 90vw;
+    width: 0;  /* no artificial box */
+    height: 0;
+    z-index: 1000;
+  }
+
+  .nav button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0);
+    background: var(--dark_opaque);
+    border: 1px solid var(--gray);
+    color: var(--white);
+    z-index: 1100; /* make sure buttons sit on top */
+  }
+
+  
+  .nav button.active {
+    background-color: var(--dark_opaque);
+    border-top: 2px solid var(--blue);
+    border-right:  2px solid var(--red);
+    border-bottom: 2px solid var(--blue);
+    border-left:  2px solid var(--red);
+  }
+
+  .span {
+    display: none;
+  }
+
+  .icon {
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 100000;
+  }
+
+  /* Toggle button */
+  .mobile-toggle {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 1200;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--dark_opaque);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--white);
+  }
+
+  .screen {
+    
+  }
+
+  .frame {
+            box-shadow: none;
+  }
+}
+

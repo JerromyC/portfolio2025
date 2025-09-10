@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>My Portfolio</title>
+</head>
+
+<body>
+    <div class="frame">
+        <!-- Sidebar -->
+        <!-- Toggle button (only shows on mobile) -->
+        <button id="mobileMenuToggle" class="mobile-toggle">☰</button>
+
+        <aside class="sidebar" id="mobileSidebar">
+            <div class="shape-container"></div>
+
+            <div class="content-wrapper frosted-card">
+                <img src="./assets/jdc.jpg" alt="My photo" class="profile">
+                <div class="info">
+                    <h1>Jerromy Chance</h1>
+                    <p>Web Designer & Developer</p>
+                </div>
+
+                <nav class="nav">
+                    <button data-target="about" class="active">
+                        <span class="span">About</span>
+                        <img class="icon" src="./assets/about.gif" alt="">
+                    </button>
+                    <button data-target="works"> <span class="span">Works</span>
+                        <img class="icon" src="./assets/works.gif" alt=""></button>
+                    <button data-target="skills"> <span class="span">Skills</span>
+                        <img class="icon" src="./assets/skills.gif" alt=""></button>
+                    <button data-target="resume"> <span class="span">Resume</span>
+                        <img class="icon" src="./assets/resume.gif" alt=""></button>
+                    <button data-target="contact"> <span class="span">Contact</span>
+                        <img class="icon" src="./assets/contact.gif" alt=""></button>
+                </nav>
+            </div>
+        </aside>
+
+
+
+        <!-- Screen -->
+        <main class="screen">
+            <section id="about" class="page active">
+                <h2>About Me</h2>
+                <p>
+                    Hi, I’m Jerromy — a web designer and developer with a background in digital marketing.
+                    I specialize in building clean, user-focused websites that blend visual design with solid technical
+                    foundations.
+                </p>
+                <p>
+                    My style leans toward minimal layouts with bold accents — influenced by the retro web and 90’s
+                    aesthetics I grew up with.
+                    I enjoy combining modern front-end techniques with a nostalgic flair.
+                </p>
+                                <p>
+                    Hi, I’m Jerromy — a web designer and developer with a background in digital marketing.
+                    I specialize in building clean, user-focused websites that blend visual design with solid technical
+                    foundations.
+                </p>
+                <p>
+                    My style leans toward minimal layouts with bold accents — influenced by the retro web and 90’s
+                    aesthetics I grew up with.
+                    I enjoy combining modern front-end techniques with a nostalgic flair.
+                </p>
+                                <p>
+                    Hi, I’m Jerromy — a web designer and developer with a background in digital marketing.
+                    I specialize in building clean, user-focused websites that blend visual design with solid technical
+                    foundations.
+                </p>
+                <p>
+                    My style leans toward minimal layouts with bold accents — influenced by the retro web and 90’s
+                    aesthetics I grew up with.
+                    I enjoy combining modern front-end techniques with a nostalgic flair.
+                </p>
+                                <p>
+                    Hi, I’m Jerromy — a web designer and developer with a background in digital marketing.
+                    I specialize in building clean, user-focused websites that blend visual design with solid technical
+                    foundations.
+                </p>
+                <p>
+                    My style leans toward minimal layouts with bold accents — influenced by the retro web and 90’s
+                    aesthetics I grew up with.
+                    I enjoy combining modern front-end techniques with a nostalgic flair.
+                </p>
+            </section>
+            <section id="works" class="page">
+                <h2>Selected Works</h2>
+                <div class="projects">
+                    <article>
+                        <h3>Portfolio Redesign</h3>
+                        <p>A single-page portfolio with a retro TV-inspired frame and interactive navigation. Built with
+                            HTML, CSS Grid, and GSAP animations.</p>
+                        <a href="#">View Project</a>
+                    </article>
+
+                    <article>
+                        <h3>Local Business Website</h3>
+                        <p>A responsive website for a small landscaping company. Features a service catalog, photo
+                            gallery, and contact form.</p>
+                        <a href="#">View Project</a>
+                    </article>
+
+                    <article>
+                        <h3>E-Commerce Landing Page</h3>
+                        <p>A product-focused landing page with conversion in mind. Includes interactive product cards
+                            and a smooth checkout flow.</p>
+                        <a href="#">View Project</a>
+                    </article>
+                </div>
+            </section>
+
+            <section id="skills" class="page">
+                <h2>Skills</h2>
+                <ul>
+                    <li><strong>Languages:</strong> HTML5, CSS3, JavaScript (ES6+), SQL</li>
+                    <li><strong>Frameworks & Tools:</strong> Bootstrap, GSAP, Tailwind (familiar), Git</li>
+                    <li><strong>Design:</strong> Figma, Photoshop, Illustrator</li>
+                    <li><strong>Other:</strong> SEO strategy, content editing, digital marketing campaigns</li>
+                </ul>
+                <p>
+                    I focus on creating accessible, responsive designs with lightweight code.
+                    I’m always exploring newer CSS features and animation libraries to keep projects fresh.
+                </p>
+            </section>
+
+            <section id="resume" class="page">
+                <h2>Resume</h2>
+                <p>You can download my full resume here:</p>
+                <a href="./assets/jerromy_resume.pdf" download class="resume-button">Download Resume</a>
+
+                <h3>Highlights</h3>
+                <ul>
+                    <li>Degree in Business Administration with a focus in Digital Marketing</li>
+                    <li>Experience in web design, development, and digital marketing strategy</li>
+                    <li>Freelance projects spanning small business websites, landing pages, and branding support</li>
+                </ul>
+            </section>
+
+            <section id="contact" class="page">
+                <h2>Contact Me</h2>
+                <p>Interested in working together? Let’s talk.</p>
+                <ul>
+                    <li>Email: <a href="mailto:norwalldesign@gmail.com">norwalldesign@gmail.com</a></li>
+                    <li>Phone: <a href="tel:2512952962">(251) 295-2962</a></li>
+                    <li>LinkedIn: <a href="#">linkedin.com/in/jerromy</a></li>
+                    <li>GitHub: <a href="#">github.com/jerromy</a></li>
+                </ul>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        const buttons = document.querySelectorAll('.nav button');
+        const pages = document.querySelectorAll('.page');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = btn.dataset.target;
+
+                // Hide all pages
+                pages.forEach(page => page.classList.remove('active'));
+
+                // Show selected page
+                document.getElementById(target).classList.add('active');
+
+                // Reset all buttons
+                buttons.forEach(b => b.classList.remove('active'));
+
+                // Highlight the clicked button
+                btn.classList.add('active');
+            });
+        });
+    </script>
+    <script>
+const toggleBtn = document.getElementById("mobileMenuToggle");
+const navBtns = document.querySelectorAll(".nav button");
+const profile = document.getElementById("profile");
+let menuOpen = false;
+
+toggleBtn.addEventListener("click", () => {
+  if (!menuOpen) {
+    navBtns.forEach((btn, i) => {
+      // Spread buttons in 90° arc (up + left from bottom-right corner)
+      const angle = (i / (navBtns.length - 1)) * (Math.PI / 2); 
+      const radius = 180; // distance from toggle
+      const x = -radius * Math.cos(angle);
+      const y = -radius * Math.sin(angle);
+      gsap.to(btn, {
+        x, y,
+        opacity: 1,
+        scale: 1,
+        duration: 0.4,
+        delay: i * 0.05,
+        ease: "back.out(1.7)"
+      });
+    });
+    menuOpen = true;
+  } else {
+    navBtns.forEach((btn, i) => {
+      gsap.to(btn, {
+        x: 0, y: 0,
+        opacity: 0,
+        scale: 0,
+        duration: 0.3,
+        delay: i * 0.03,
+        ease: "back.in(1.7)"
+      });
+    });
+    menuOpen = false;
+  }
+});
+
+
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="./animation.js"></script>
+</body>
+
+</html>
